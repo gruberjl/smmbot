@@ -1,3 +1,3 @@
-import {shareImage} from './share-image'
+import {getTwit, followers} from './lib'
 
-export const twitter = {shareImage}
+export const twitter = {getTwit, followers}

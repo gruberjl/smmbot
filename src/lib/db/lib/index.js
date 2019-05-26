@@ -1,5 +1,5 @@
 export {getDb} from './get-db'
-export {create} from './create'
+export {put} from './put'
 export {get} from './get'
 export {remove} from './remove'
 export {allDocs} from './all-docs'

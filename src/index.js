@@ -1,7 +1,7 @@
-import {db} from 'lib'
+import {twitter} from 'lib'
 
 const a = async () => {
-  const r = await db.accounts.allDocs()
+  const r = await twitter.followers.get()
   console.log(r)
 }
 a()
