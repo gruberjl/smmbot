@@ -1,7 +1,8 @@
-import {twitter} from 'lib'
+import {chrome, db} from 'lib'
 
 const a = async () => {
-  const r = await twitter.followers.get()
-  console.log(r)
+  // console.log(await db.accounts.get('medium'))
+  const browser = await chrome.build()
+  chrome.getCookies(browser, 'medium')
 }
 a()

@@ -8,6 +8,8 @@ export const build = async (disableNotifications = true) => {
 
   chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build())
 
-  const driver = new webdriver.Builder().forBrowser('chrome').withCapabilities(options).build()
-  return driver
+  const browser = new webdriver.Builder().forBrowser('chrome').withCapabilities(options).build()
+  await browser.get('http://gitbit.org')
+
+  return browser
 }
