@@ -1,6 +1,7 @@
 import {db} from 'lib'
 
 const a = async () => {
-  db.getDb('accounts')
+  const doc = await db.accounts.allDocs()
+  console.log(doc)
 }
 a()

@@ -18,6 +18,8 @@ module.exports = {
     "sourceType": "module"
   },
   "rules": {
+    "no-console": "off",
+    
     "semi": "off",
     "@typescript-eslint/semi": ["warn", "never"],
 

@@ -1,3 +1,3 @@
-import {getDb} from './get-db'
+import {accounts} from './accounts'
 
-export const db = {getDb}
+export const db = {accounts}
