@@ -1,3 +1,3 @@
 export {chrome} from './chrome'
-export {facebook} from './facebook'
+export {twitter} from './twitter'
 export {db} from './db'
