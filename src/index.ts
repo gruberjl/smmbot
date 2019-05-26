@@ -1,7 +1,6 @@
-import {chrome} from 'lib'
+import {db} from 'lib'
 
 const a = async () => {
-  const browser = await chrome.build()
-  chrome.destroy(browser)
+  db.getDb('accounts')
 }
 a()
