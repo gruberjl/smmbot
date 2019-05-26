@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/index.ts",
+    "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
     "build": "tsc",
     "lint": "eslint src/**"
   },
@@ -33,6 +33,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "eslint": "^5.16.0",
     "ts-node": "^8.1.1",
+    "tsconfig-paths": "^3.8.0",
     "typescript": "^3.4.5"
   }
 }
