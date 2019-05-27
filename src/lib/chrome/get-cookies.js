@@ -8,7 +8,6 @@ const addCookies = async (driver, cookies) => {
 
 const getCookies = async (browser, docId) => {
   const doc = await db.accounts.get(docId)
-  console.log(doc.cookies)
   if (doc.cookies) await addCookies(browser, doc.cookies)
 }
 
