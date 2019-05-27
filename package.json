@@ -8,7 +8,8 @@
     "start": "babel-node src",
     "build": "tsc",
     "lint": "eslint src/**",
-    "chrome-login": "babel-node  src/scripts/chrome-login"
+    "chrome-login": "babel-node  src/scripts/chrome-login",
+    "share-medium-articles": "babel-node  src/scripts/share-medium-articles"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "dependencies": {
     "chromedriver": "^74.0.0",
     "clone-deep": "^4.0.1",
+    "moment": "^2.24.0",
     "pouchdb": "^7.0.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "twit": "^2.2.11"

@@ -1,8 +1,6 @@
-import {chrome, db} from 'lib'
+import moment from 'moment'
 
 const a = async () => {
-  // console.log(await db.accounts.get('medium'))
-  const browser = await chrome.build()
-  chrome.getCookies(browser, 'medium')
+  console.log(moment(new Date()))
 }
 a()
