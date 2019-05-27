@@ -1,12 +1,9 @@
-import {getDb} from './get-db'
+import {getCollection} from './get-collection'
 
-export const remove = (dbName) => (doc) => new Promise((res) => {
-  const db = getDb(dbName)
+export const remove = (dbName) => (doc) => {
+  const collection = getCollection(dbName)
 
-  db.remove(doc, (error, response) => {
-    if (error)
-      res({error})
-    else
-      res(response)
-  })
-})
+  return collection.doc(doc.id).delete()
+    .then(() => doc)
+    .catch(error => ({error}))
+}

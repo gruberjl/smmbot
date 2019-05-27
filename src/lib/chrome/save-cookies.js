@@ -5,6 +5,6 @@ export const saveCookies = async (browser, docId) => {
 
   const cookies = await browser.manage().getCookies()
   doc.cookies = cookies
-  
-  await db.accounts.put(doc)
+
+  await db.accounts.set(doc)
 }

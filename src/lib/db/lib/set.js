@@ -1,9 +1,9 @@
 import {getCollection} from './get-collection'
 
-export const get = (dbName) => (id) => {
+export const set = (dbName) => (data) => {
   const collection = getCollection(dbName)
 
-  return collection.doc(id).get()
-    .then(doc => doc.data())
+  return collection.doc(data.id).set(data)
+    .then(() => data)
     .catch(error => ({error}))
 }

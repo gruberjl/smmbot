@@ -9,5 +9,8 @@
         }
       }
     ]
+  ],
+  "ignore": [
+    "./secret.json"
   ]
 }

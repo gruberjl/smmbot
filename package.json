@@ -24,8 +24,8 @@
   "dependencies": {
     "chromedriver": "^74.0.0",
     "clone-deep": "^4.0.1",
+    "firebase-admin": "^8.0.0",
     "moment": "^2.24.0",
-    "pouchdb": "^7.0.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "twit": "^2.2.11"
   },

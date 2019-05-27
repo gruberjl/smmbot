@@ -1,11 +1,11 @@
 import {chrome, db} from 'lib'
 
-const accountId = 'medium' // Id for the database doc that will be created
-const delay = 1 * 1000 * 60 // number of milliseconds before closing browser
+const accountId = 'flipboard' // Id for the database doc that will be created
+const delay = 10 * 1000 * 60 // number of milliseconds before closing browser
 
 const createDoc = async () => { // eslint-disable-line
-  await db.accounts.put({
-    _id: accountId,
+  await db.accounts.set({
+    id: accountId,
     cookies: []
   })
 }
