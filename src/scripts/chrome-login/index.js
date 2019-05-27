@@ -10,7 +10,7 @@ const createDoc = async () => { // eslint-disable-line
   })
 }
 
-const chromeLogin = async () => {
+export const chromeLogin = async () => {
   const doc = await db.accounts.get(accountId)
   if (doc.error) await createDoc()
 
@@ -21,5 +21,3 @@ const chromeLogin = async () => {
 
   await browser.quit()
 }
-
-chromeLogin()

@@ -2,7 +2,7 @@ import {chrome, medium} from 'lib'
 import {publications} from './publications'
 import {tweet} from './tweet'
 
-const shareMediumArticles = async () => {
+export const shareMediumArticles = async () => {
   const browser = await chrome.build()
   chrome.getCookies(browser, 'medium')
 
@@ -20,5 +20,3 @@ const shareMediumArticles = async () => {
 
   await chrome.destroy(browser)
 }
-
-shareMediumArticles()
