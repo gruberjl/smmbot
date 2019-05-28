@@ -9,7 +9,8 @@
     "build": "tsc",
     "lint": "eslint src/**",
     "chrome-login": "babel-node  src/scripts/chrome-login/start",
-    "share-medium-articles": "babel-node  src/scripts/share-medium-articles/start"
+    "share-medium-articles": "babel-node  src/scripts/share-medium-articles/start",
+    "auto-deploy": "babel-node src/scripts/auto-deploy/start"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "firebase-admin": "^8.0.0",
     "moment": "^2.24.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
+    "simple-git": "^1.113.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {
