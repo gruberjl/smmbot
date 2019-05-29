@@ -1,21 +1,42 @@
 "use strict";
 
-var _lib = require("./lib");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.saveCookies = void 0;
+
+var _ = require("./..");
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var a =
+var saveCookies =
 /*#__PURE__*/
 function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
+  regeneratorRuntime.mark(function _callee(browser, docId) {
+    var doc, cookies;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            _context.next = 2;
+            return _.db.accounts.get(docId);
+
+          case 2:
+            doc = _context.sent;
+            _context.next = 5;
+            return browser.manage().getCookies();
+
+          case 5:
+            cookies = _context.sent;
+            doc.cookies = cookies;
+            _context.next = 9;
+            return _.db.accounts.set(doc);
+
+          case 9:
           case "end":
             return _context.stop();
         }
@@ -23,9 +44,9 @@ function () {
     }, _callee);
   }));
 
-  return function a() {
+  return function saveCookies(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
 
-a();
+exports.saveCookies = saveCookies;

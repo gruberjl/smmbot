@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node src",
+    "build": "babel src --out-dir dist",
+    "start": "pm2 init",
     "lint": "eslint src/**",
     "chrome-login": "babel-node  src/scripts/chrome-login/start",
     "share-medium-articles": "babel-node  src/scripts/share-medium-articles/start",
@@ -26,10 +27,12 @@
     "clone-deep": "^4.0.1",
     "firebase-admin": "^8.0.0",
     "moment": "^2.24.0",
+    "pm2": "^3.5.1",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "twit": "^2.2.11"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
