@@ -9,7 +9,7 @@
     "lint": "eslint src/**",
     "chrome-login": "babel-node  src/scripts/chrome-login/start",
     "share-medium-articles": "babel-node  src/scripts/share-medium-articles/start",
-    "auto-deploy": "babel-node src/scripts/auto-deploy/start"
+    "share-posts": "babel-node src/scripts/share-posts/start"
   },
   "repository": {
     "type": "git",
