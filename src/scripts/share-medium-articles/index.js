@@ -1,6 +1,6 @@
 import {chrome, medium} from 'lib'
 import {publications} from './publications'
-import {tweet} from './tweet'
+import {saveTweet} from './save-tweet'
 
 export const shareMediumArticles = async () => {
   const browser = await chrome.build()
@@ -14,7 +14,7 @@ export const shareMediumArticles = async () => {
       const articleDetails = await medium.article.getDetails(browser, articleUrls[j])
       articleDetails.publicationTwitter = publications[i].twitter
 
-      await tweet(articleDetails)
+      await saveTweet(articleDetails)
     }
   }
 
