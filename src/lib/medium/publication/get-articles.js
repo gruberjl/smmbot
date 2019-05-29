@@ -14,7 +14,7 @@ export const getArticles = async (browser, publication = 'the-mission', filter='
     if (premium) continue
 
     if (filter === 'today')
-      if (!moment(date).isSame(new Date(), 'day')) continue
+      if (!moment(date).add(1, "days").isSame(new Date(), 'day')) continue
 
     const url = await posts[i].findElement(By.css('.postArticle-readMore a')).getAttribute('href').catch(() => undefined)
 
