@@ -1,7 +1,14 @@
 // import {get} from './lib/db/lib/get'
-import {chrome, flipboard} from 'lib'
+import "@babel/polyfill"
+import {sharePosts} from 'scripts'
+const fifteenMinutes = 900000
 
-const a = async () => {
+const start = async () => {
+  sharePosts()
 
+  setInterval(() => {
+    sharePosts()
+  }, fifteenMinutes)
 }
-a()
+
+start()

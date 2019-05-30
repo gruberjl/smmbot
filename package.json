@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir dist",
-    "start": "pm2 init",
+    "start": "pm2 start",
+    "dev": "babel-node src",
     "lint": "eslint src/**",
-    "chrome-login": "babel-node  src/scripts/chrome-login/start",
-    "share-medium-articles": "babel-node  src/scripts/share-medium-articles/start",
+    "chrome-login": "babel-node src/scripts/chrome-login/start",
+    "share-medium-articles": "babel-node src/scripts/share-medium-articles/start",
     "share-posts": "babel-node src/scripts/share-posts/start"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/gruberjl/smmbot#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "chromedriver": "^74.0.0",
     "clone-deep": "^4.0.1",
     "firebase-admin": "^8.0.0",
