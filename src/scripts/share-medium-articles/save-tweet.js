@@ -9,13 +9,15 @@ const createId = () => {
   return `${date}-${platform}-${random}`
 }
 
-export const saveTweet = async (articleDetails) => {
+export const saveTweet = async (userId, accountId, articleDetails) => {
   const message = createTweet(articleDetails)
   await db.posts.set({
-    account: 'twitter',
+    provider: 'twitter',
     id: createId(),
     message,
     postAt: moment().toISOString(),
-    posted: false
+    posted: false,
+    account: accountId,
+    user: userId
   })
 }

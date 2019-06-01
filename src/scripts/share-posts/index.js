@@ -8,12 +8,12 @@ export const sharePosts = async () => {
   for (let i=0; i<accountPosts.length; i++) {
     const {account, post} = accountPosts[i]
 
-    if (account.id == 'twitter') {
-      const response = await twitter.tweet.post(post.message)
+    if (account.provider == 'twitter') {
+      const response = await twitter.tweet.post(account, post.message)
       if (response.error)
         console.log(response.error)
       else {
-        account.lastShare = moment().toISOString()
+        account.nextShare = moment().add(account.shareFrequency, 'minutes').toISOString()
         await db.accounts.set(account)
         post.posted = true
         await db.posts.set(post)

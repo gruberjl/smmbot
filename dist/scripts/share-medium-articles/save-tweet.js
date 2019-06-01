@@ -29,7 +29,7 @@ var saveTweet =
 function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee(articleDetails) {
+  regeneratorRuntime.mark(function _callee(userId, accountId, articleDetails) {
     var message;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -38,11 +38,13 @@ function () {
             message = (0, _createTweet.createTweet)(articleDetails);
             _context.next = 3;
             return _lib.db.posts.set({
-              account: 'twitter',
+              provider: 'twitter',
               id: createId(),
               message: message,
               postAt: (0, _moment["default"])().toISOString(),
-              posted: false
+              posted: false,
+              account: accountId,
+              user: userId
             });
 
           case 3:
@@ -53,7 +55,7 @@ function () {
     }, _callee);
   }));
 
-  return function saveTweet(_x) {
+  return function saveTweet(_x, _x2, _x3) {
     return _ref.apply(this, arguments);
   };
 }();

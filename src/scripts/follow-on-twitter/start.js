@@ -1,2 +1,2 @@
 import {followOnTwitter} from './index'
-followOnTwitter()
+followOnTwitter('gruberjl-twitter')

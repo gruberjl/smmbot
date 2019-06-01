@@ -2,4 +2,4 @@
 
 var _index = require("./index");
 
-(0, _index.shareMyArticle)();
+(0, _index.followOnTwitter)('gruberjl-twitter');

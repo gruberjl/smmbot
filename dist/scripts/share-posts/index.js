@@ -44,13 +44,13 @@ function () {
 
             _accountPosts$i = accountPosts[i], account = _accountPosts$i.account, post = _accountPosts$i.post;
 
-            if (!(account.id == 'twitter')) {
+            if (!(account.provider == 'twitter')) {
               _context.next = 20;
               break;
             }
 
             _context.next = 9;
-            return _lib.twitter.tweet.post(post.message);
+            return _lib.twitter.tweet.post(account, post.message);
 
           case 9:
             response = _context.sent;
@@ -65,7 +65,7 @@ function () {
             break;
 
           case 14:
-            account.lastShare = (0, _moment["default"])().toISOString();
+            account.nextShare = (0, _moment["default"])().add(account.shareFrequency, 'minutes').toISOString();
             _context.next = 17;
             return _lib.db.accounts.set(account);
 

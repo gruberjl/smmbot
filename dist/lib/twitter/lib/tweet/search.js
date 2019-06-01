@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.post = void 0;
+exports.search = void 0;
 
 var _getTwit = require("../get-twit");
 
@@ -11,14 +11,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var post = function post(account, status) {
+var search = function search(account, query) {
   return new Promise(
   /*#__PURE__*/
   function () {
     var _ref = _asyncToGenerator(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee(res) {
-      var twit;
+      var twit, settings;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -28,16 +28,20 @@ var post = function post(account, status) {
 
             case 2:
               twit = _context.sent;
-              twit.post('statuses/update', {
-                status: status
-              }, function (error, data) {
+              settings = {
+                q: query,
+                count: 100,
+                include_entities: true,
+                lang: 'en'
+              };
+              twit.get('search/tweets', settings, function (error, data) {
                 if (error) return res({
                   error: error
                 });
-                return res(data);
+                return res(data.statuses);
               });
 
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -51,4 +55,4 @@ var post = function post(account, status) {
   }());
 };
 
-exports.post = post;
+exports.search = search;

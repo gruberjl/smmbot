@@ -19,8 +19,8 @@ const accountsToObject = (acc, account) => {
 }
 
 export const getAccountPosts = async () => {
-  const accounts = (await db.accounts.allDocs())
-    .filter(db.accounts.isReadyToShare)
+  const accounts = (await db.accounts.getReadyToShare())
+    // .filter(db.accounts.isReadyToShare)
     .reduce(accountsToObject, {})
 
   const posts = getOnePostPerAccount(await db.posts.find.readyToPost())

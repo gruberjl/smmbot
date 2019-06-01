@@ -21,9 +21,17 @@ Object.defineProperty(exports, "tweet", {
     return _tweet.tweet;
   }
 });
+Object.defineProperty(exports, "user", {
+  enumerable: true,
+  get: function get() {
+    return _user.user;
+  }
+});
 
 var _getTwit = require("./get-twit");
 
 var _followers = require("./followers");
 
 var _tweet = require("./tweet");
+
+var _user = require("./user");

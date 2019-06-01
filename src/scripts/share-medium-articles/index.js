@@ -1,10 +1,11 @@
-import {chrome, medium} from 'lib'
+import {chrome, medium, db} from 'lib'
 import {publications} from './publications'
 import {saveTweet} from './save-tweet'
 
-export const shareMediumArticles = async () => {
+export const shareMediumArticles = async (accountId) => {
+  const account = await db.accounts.get(accountId)
   const browser = await chrome.build()
-  chrome.getCookies(browser, 'medium')
+  chrome.addCookiesToBrowser(browser, account.cookies)
 
   for (let i=0; i<publications.length; i++) {
     const articleUrls = await medium.publication.getArticles(browser, publications[i].id)
@@ -14,7 +15,7 @@ export const shareMediumArticles = async () => {
       const articleDetails = await medium.article.getDetails(browser, articleUrls[j])
       articleDetails.publicationTwitter = publications[i].twitter
 
-      await saveTweet(articleDetails)
+      await saveTweet(account.user, accountId, articleDetails)
     }
   }
 

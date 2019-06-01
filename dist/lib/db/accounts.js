@@ -11,11 +11,18 @@ var _lib = require("./lib");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var dbName = 'accounts';
+var dbName = 'accounts'; // const isReadyToShare = (account) => {
+//   const nextShare = moment(account.lastShare).add(account.nextShare, 'minutes')
+//   return nextShare.isSameOrBefore(moment())
+// }
 
-var isReadyToShare = function isReadyToShare(account) {
-  var nextShare = (0, _moment["default"])(account.lastShare).add(account.nextShare, 'minutes');
-  return nextShare.isSameOrBefore((0, _moment["default"])());
+var getReadyToShare = function getReadyToShare() {
+  var collection = (0, _lib.getCollection)(dbName);
+  return collection.where('nextShare', '<=', (0, _moment["default"])().toISOString()).get().then(_lib.snapshotToDocs)["catch"](function (error) {
+    return {
+      error: error
+    };
+  });
 };
 
 var accounts = {
@@ -24,6 +31,6 @@ var accounts = {
   get: (0, _lib.get)(dbName),
   remove: (0, _lib.remove)(dbName),
   allDocs: (0, _lib.allDocs)(dbName),
-  isReadyToShare: isReadyToShare
+  getReadyToShare: getReadyToShare
 };
 exports.accounts = accounts;

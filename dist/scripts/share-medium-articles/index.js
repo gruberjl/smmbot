@@ -20,69 +20,74 @@ var shareMediumArticles =
 function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
-    var browser, i, articleUrls, j, articleDetails;
+  regeneratorRuntime.mark(function _callee(accountId) {
+    var account, browser, i, articleUrls, j, articleDetails;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _lib.chrome.build();
+            return _lib.db.accounts.get(accountId);
 
           case 2:
+            account = _context.sent;
+            _context.next = 5;
+            return _lib.chrome.build();
+
+          case 5:
             browser = _context.sent;
 
-            _lib.chrome.getCookies(browser, 'medium');
+            _lib.chrome.addCookiesToBrowser(browser, account.cookies);
 
             i = 0;
 
-          case 5:
+          case 8:
             if (!(i < _publications.publications.length)) {
+              _context.next = 28;
+              break;
+            }
+
+            _context.next = 11;
+            return _lib.medium.publication.getArticles(browser, _publications.publications[i].id);
+
+          case 11:
+            articleUrls = _context.sent;
+            j = 0;
+
+          case 13:
+            if (!(j < articleUrls.length)) {
               _context.next = 25;
               break;
             }
 
-            _context.next = 8;
-            return _lib.medium.publication.getArticles(browser, _publications.publications[i].id);
-
-          case 8:
-            articleUrls = _context.sent;
-            j = 0;
-
-          case 10:
-            if (!(j < articleUrls.length)) {
-              _context.next = 22;
-              break;
-            }
-
-            _context.next = 13;
+            _context.next = 16;
             return _lib.medium.article.read(browser, articleUrls[j]);
 
-          case 13:
-            _context.next = 15;
+          case 16:
+            _context.next = 18;
             return _lib.medium.article.getDetails(browser, articleUrls[j]);
 
-          case 15:
+          case 18:
             articleDetails = _context.sent;
             articleDetails.publicationTwitter = _publications.publications[i].twitter;
-            _context.next = 19;
-            return (0, _saveTweet.saveTweet)(articleDetails);
-
-          case 19:
-            j++;
-            _context.next = 10;
-            break;
+            _context.next = 22;
+            return (0, _saveTweet.saveTweet)(account.user, accountId, articleDetails);
 
           case 22:
-            i++;
-            _context.next = 5;
+            j++;
+            _context.next = 13;
             break;
 
           case 25:
-            _context.next = 27;
+            i++;
+            _context.next = 8;
+            break;
+
+          case 28:
+            _context.next = 30;
             return _lib.chrome.destroy(browser);
 
-          case 27:
+          case 30:
           case "end":
             return _context.stop();
         }
@@ -90,7 +95,7 @@ function () {
     }, _callee);
   }));
 
-  return function shareMediumArticles() {
+  return function shareMediumArticles(_x) {
     return _ref.apply(this, arguments);
   };
 }();

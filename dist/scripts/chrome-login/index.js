@@ -11,27 +11,54 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var accountId = 'flipboard'; // Id for the database doc that will be created
-
-var delay = 10 * 1000 * 60; // number of milliseconds before closing browser
-
-var createDoc =
+var chromeLogin =
 /*#__PURE__*/
 function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
+  regeneratorRuntime.mark(function _callee(accountId, provider, username, delayInMs) {
+    var browser, account, cookies;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _lib.db.accounts.set({
-              id: accountId,
-              cookies: []
-            });
+            return _lib.chrome.build();
 
           case 2:
+            browser = _context.sent;
+            _context.next = 5;
+            return browser.sleep(delayInMs);
+
+          case 5:
+            _context.next = 7;
+            return _lib.db.accounts.get(accountId);
+
+          case 7:
+            account = _context.sent;
+
+            if (account.error) {
+              account = {
+                id: accountId,
+                provider: provider,
+                username: username
+              };
+            }
+
+            _context.next = 11;
+            return _lib.chrome.getCookiesFromBrowser(browser);
+
+          case 11:
+            cookies = _context.sent;
+            account.cookies = cookies;
+            _context.next = 15;
+            return _lib.db.accounts.set(account);
+
+          case 15:
+            _context.next = 17;
+            return browser.quit();
+
+          case 17:
           case "end":
             return _context.stop();
         }
@@ -39,63 +66,8 @@ function () {
     }, _callee);
   }));
 
-  return function createDoc() {
+  return function chromeLogin(_x, _x2, _x3, _x4) {
     return _ref.apply(this, arguments);
-  };
-}();
-
-var chromeLogin =
-/*#__PURE__*/
-function () {
-  var _ref2 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee2() {
-    var doc, browser;
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _lib.db.accounts.get(accountId);
-
-          case 2:
-            doc = _context2.sent;
-
-            if (!doc.error) {
-              _context2.next = 6;
-              break;
-            }
-
-            _context2.next = 6;
-            return createDoc();
-
-          case 6:
-            _context2.next = 8;
-            return _lib.chrome.build();
-
-          case 8:
-            browser = _context2.sent;
-            _context2.next = 11;
-            return browser.sleep(delay);
-
-          case 11:
-            _context2.next = 13;
-            return _lib.chrome.saveCookies(browser, accountId);
-
-          case 13:
-            _context2.next = 15;
-            return browser.quit();
-
-          case 15:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-
-  return function chromeLogin() {
-    return _ref2.apply(this, arguments);
   };
 }();
 

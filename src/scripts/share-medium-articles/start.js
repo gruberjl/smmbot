@@ -1,3 +1,3 @@
 import {shareMediumArticles} from './index'
 
-shareMediumArticles()
+shareMediumArticles('gruberjl-medium')

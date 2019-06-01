@@ -1,6 +1,6 @@
 import {build} from './build'
 import {destroy} from './destroy'
-import {saveCookies} from './save-cookies'
-import {getCookies} from './get-cookies'
+import {addCookiesToBrowser} from './add-cookies-to-browser'
+import {getCookiesFromBrowser} from './get-cookies-from-browser'
 
-export const chrome = {build, destroy, saveCookies, getCookies}
+export const chrome = {build, destroy, addCookiesToBrowser, getCookiesFromBrowser}

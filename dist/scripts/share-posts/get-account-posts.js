@@ -38,20 +38,20 @@ function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _lib.db.accounts.allDocs();
+            return _lib.db.accounts.getReadyToShare();
 
           case 2:
-            _context.t0 = _lib.db.accounts.isReadyToShare;
-            _context.t1 = accountsToObject;
-            _context.t2 = {};
-            accounts = _context.sent.filter(_context.t0).reduce(_context.t1, _context.t2);
-            _context.t3 = getOnePostPerAccount;
-            _context.next = 9;
+            _context.t0 = accountsToObject;
+            _context.t1 = {};
+            accounts = _context.sent. // .filter(db.accounts.isReadyToShare)
+            reduce(_context.t0, _context.t1);
+            _context.t2 = getOnePostPerAccount;
+            _context.next = 8;
             return _lib.db.posts.find.readyToPost();
 
-          case 9:
-            _context.t4 = _context.sent;
-            posts = (0, _context.t3)(_context.t4);
+          case 8:
+            _context.t3 = _context.sent;
+            posts = (0, _context.t2)(_context.t3);
             accountPosts = posts.map(function (post) {
               return {
                 post: post,
@@ -60,7 +60,7 @@ function () {
             });
             return _context.abrupt("return", accountPosts);
 
-          case 13:
+          case 12:
           case "end":
             return _context.stop();
         }

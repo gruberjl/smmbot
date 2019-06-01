@@ -23,6 +23,7 @@ function () {
   regeneratorRuntime.mark(function _callee(browser) {
     var publication,
         filter,
+        excludePremium,
         posts,
         urls,
         i,
@@ -36,78 +37,85 @@ function () {
           case 0:
             publication = _args.length > 1 && _args[1] !== undefined ? _args[1] : 'the-mission';
             filter = _args.length > 2 && _args[2] !== undefined ? _args[2] : 'today';
-            _context.next = 4;
+            excludePremium = _args.length > 3 && _args[3] !== undefined ? _args[3] : false;
+            _context.next = 5;
             return browser.get("https://medium.com/".concat(publication, "/latest"));
 
-          case 4:
-            _context.next = 6;
+          case 5:
+            _context.next = 7;
             return browser.findElements(_seleniumWebdriver.By.className('postArticle'));
 
-          case 6:
+          case 7:
             posts = _context.sent;
             urls = [];
             i = 0;
 
-          case 9:
+          case 10:
             if (!(i < posts.length)) {
-              _context.next = 28;
+              _context.next = 30;
               break;
             }
 
-            _context.next = 12;
+            if (!excludePremium) {
+              _context.next = 17;
+              break;
+            }
+
+            _context.next = 14;
             return posts[i].findElement(_seleniumWebdriver.By.className('svgIcon--star'))["catch"](function () {
               return undefined;
             });
 
-          case 12:
+          case 14:
             premium = _context.sent;
-            _context.next = 15;
+
+            if (!premium) {
+              _context.next = 17;
+              break;
+            }
+
+            return _context.abrupt("continue", 27);
+
+          case 17:
+            _context.next = 19;
             return posts[i].findElement(_seleniumWebdriver.By.css('time')).getAttribute('datetime')["catch"](function () {
               return undefined;
             });
 
-          case 15:
+          case 19:
             date = _context.sent;
 
-            if (!premium) {
-              _context.next = 18;
-              break;
-            }
-
-            return _context.abrupt("continue", 25);
-
-          case 18:
             if (!(filter === 'today')) {
-              _context.next = 21;
+              _context.next = 23;
               break;
             }
 
             if ((0, _moment["default"])(date).add(1, "days").isSame(new Date(), 'day')) {
-              _context.next = 21;
+              _context.next = 23;
               break;
             }
 
-            return _context.abrupt("continue", 25);
+            return _context.abrupt("continue", 27);
 
-          case 21:
-            _context.next = 23;
+          case 23:
+            _context.next = 25;
             return posts[i].findElement(_seleniumWebdriver.By.css('.postArticle-readMore a')).getAttribute('href')["catch"](function () {
               return undefined;
             });
 
-          case 23:
+          case 25:
             url = _context.sent;
             if (url) urls.push(url);
 
-          case 25:
+          case 27:
             i++;
-            _context.next = 9;
+            _context.next = 10;
             break;
 
-          case 28:
+          case 30:
             return _context.abrupt("return", urls);
 
-          case 29:
+          case 31:
           case "end":
             return _context.stop();
         }

@@ -9,14 +9,14 @@ var _build = require("./build");
 
 var _destroy = require("./destroy");
 
-var _saveCookies = require("./save-cookies");
+var _addCookiesToBrowser = require("./add-cookies-to-browser");
 
-var _getCookies = require("./get-cookies");
+var _getCookiesFromBrowser = require("./get-cookies-from-browser");
 
 var chrome = {
   build: _build.build,
   destroy: _destroy.destroy,
-  saveCookies: _saveCookies.saveCookies,
-  getCookies: _getCookies.getCookies
+  addCookiesToBrowser: _addCookiesToBrowser.addCookiesToBrowser,
+  getCookiesFromBrowser: _getCookiesFromBrowser.getCookiesFromBrowser
 };
 exports.chrome = chrome;
