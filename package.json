@@ -11,7 +11,8 @@
     "lint": "eslint src/**",
     "chrome-login": "babel-node src/scripts/chrome-login/start",
     "share-medium-articles": "babel-node src/scripts/share-medium-articles/start",
-    "share-posts": "babel-node src/scripts/share-posts/start"
+    "share-posts": "babel-node src/scripts/share-posts/start",
+    "follow-on-twitter": "babel-node src/scripts/follow-on-twitter/start"
   },
   "repository": {
     "type": "git",

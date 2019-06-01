@@ -1,3 +1,3 @@
-import {getTwit, followers, tweet} from './lib'
+import {getTwit, followers, tweet, user} from './lib'
 
-export const twitter = {getTwit, followers, tweet}
+export const twitter = {getTwit, followers, tweet, user}
