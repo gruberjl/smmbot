@@ -15,7 +15,7 @@ export const shareMediumArticles = async (accountId) => {
       const articleDetails = await medium.article.getDetails(browser, articleUrls[j])
       articleDetails.publicationTwitter = publications[i].twitter
 
-      await saveTweet(account.username, accountId, articleDetails)
+      await saveTweet(account.username, 'gruberjl-twitter', articleDetails)
     }
   }
 
