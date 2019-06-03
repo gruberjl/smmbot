@@ -4,7 +4,7 @@ import {getAccountPosts} from './get-account-posts'
 
 export const sharePosts = async () => {
   const accountPosts = await getAccountPosts()
-
+    
   for (let i=0; i<accountPosts.length; i++) {
     const {account, post} = accountPosts[i]
 
