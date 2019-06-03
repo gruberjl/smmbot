@@ -8,5 +8,9 @@ export const publications = [
     name: 'Better Humans',
     id: 'better-humans',
     twitter: 'coachdotme'
+  },
+  {
+    name: 'Personal Growth',
+    id: 'personal-growth'
   }
 ]
