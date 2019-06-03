@@ -12,7 +12,8 @@
     "chrome-login": "babel-node src/scripts/chrome-login/start",
     "share-medium-articles": "babel-node src/scripts/share-medium-articles/start",
     "share-posts": "babel-node src/scripts/share-posts/start",
-    "follow-on-twitter": "babel-node src/scripts/follow-on-twitter/start"
+    "follow-on-twitter": "babel-node src/scripts/follow-on-twitter/start",
+    "bot-engage-twitter": "babel-node src/scripts/bot-engage-twitter/start"
   },
   "repository": {
     "type": "git",
