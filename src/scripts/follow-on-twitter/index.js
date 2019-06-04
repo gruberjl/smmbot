@@ -20,7 +20,7 @@ export const followOnTwitter = async (accountId, numOfFollower = 10) => {
     id: `${accountId.user}-${moment().format("YYYY-MM-DD")}`,
     provider: 'twitter',
     ranOn: moment().format("YYYY-MM-DD"),
-    user: accountId.user,
+    user: account.username,
     account: accountId,
     followed
   })

@@ -14,5 +14,5 @@ const getBot = async (id) => {
 
 export const botEngageTwitter = async (id) => {
   const bot = await getBot(id)
-  await twitter.user.engage(bot.accounts.twitter, gruberjlUserId)
+  await twitter.user.engage(bot.accounts.twitter, gruberjlUserId, false, random(3,7))
 }
