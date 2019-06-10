@@ -13,7 +13,8 @@
     "share-medium-articles": "babel-node src/scripts/share-medium-articles/start",
     "share-posts": "babel-node src/scripts/share-posts/start",
     "follow-on-twitter": "babel-node src/scripts/follow-on-twitter/start",
-    "bot-engage-twitter": "babel-node src/scripts/bot-engage-twitter/start"
+    "bot-engage-twitter": "babel-node src/scripts/bot-engage-twitter/start",
+    "promote-post": "babel-node src/scripts/promote-post/start"
   },
   "repository": {
     "type": "git",
