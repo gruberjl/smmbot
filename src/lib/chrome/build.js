@@ -1,14 +1,12 @@
+import 'chromedriver'
 import webdriver from 'selenium-webdriver'
-import chrome from 'selenium-webdriver/chrome'
-import chromedriver from 'chromedriver'
 
 export const build = async (disableNotifications = true) => {
-  const options = new chrome.Options()
-  if (disableNotifications) options.addArguments('--disable-notifications')
+  var chromeCapabilities = webdriver.Capabilities.chrome()
+  var chromeOptions = {'args': ['--disable-notifications']}
+  chromeCapabilities.set('chromeOptions', chromeOptions)
 
-  chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build())
-
-  const browser = new webdriver.Builder().forBrowser('chrome').withCapabilities(options).build()
+  const browser = new webdriver.Builder().forBrowser('chrome').withCapabilities(chromeCapabilities).build()
   await browser.get('http://gitbit.org')
 
   return browser

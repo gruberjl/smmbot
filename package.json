@@ -14,7 +14,8 @@
     "share-posts": "babel-node src/scripts/share-posts/start",
     "follow-on-twitter": "babel-node src/scripts/follow-on-twitter/start",
     "bot-engage-twitter": "babel-node src/scripts/bot-engage-twitter/start",
-    "promote-post": "babel-node src/scripts/promote-post/start"
+    "promote-post": "babel-node src/scripts/promote-post/start",
+    "get-accounts": "babel-node src/scripts/get-accounts"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,13 @@
   "homepage": "https://github.com/gruberjl/smmbot#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "await-sleep": "0.0.1",
     "chromedriver": "^74.0.0",
     "clone-deep": "^4.0.1",
-    "firebase-admin": "^8.0.0",
+    "firebase-admin": "^8.1.0",
     "moment": "^2.24.0",
     "pm2": "^3.5.1",
-    "selenium-webdriver": "^4.0.0-alpha.1",
+    "selenium-webdriver": "^4.0.0-alpha.3",
     "twit": "^2.2.11"
   },
   "devDependencies": {
@@ -41,6 +43,7 @@
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-module-resolver": "^3.2.0",
