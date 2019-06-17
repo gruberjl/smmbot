@@ -1,7 +1,7 @@
 import 'chromedriver'
 import webdriver from 'selenium-webdriver'
 
-export const build = async (disableNotifications = true) => {
+export const build = async () => {
   var chromeCapabilities = webdriver.Capabilities.chrome()
   var chromeOptions = {'args': ['--disable-notifications']}
   chromeCapabilities.set('chromeOptions', chromeOptions)

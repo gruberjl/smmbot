@@ -29,6 +29,7 @@
   "homepage": "https://github.com/gruberjl/smmbot#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "array-shuffle": "^1.0.1",
     "await-sleep": "0.0.1",
     "chromedriver": "^74.0.0",
     "clone-deep": "^4.0.1",
