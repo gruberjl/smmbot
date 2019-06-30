@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir dist",
-    "start": "pm2 start",
+    "start": "babel-node src/scripts",
     "dev": "babel-node src",
     "lint": "eslint src/**",
     "chrome-login": "babel-node src/scripts/chrome-login/start",
@@ -15,7 +15,8 @@
     "follow-on-twitter": "babel-node src/scripts/follow-on-twitter/start",
     "bot-engage-twitter": "babel-node src/scripts/bot-engage-twitter/start",
     "promote-post": "babel-node src/scripts/promote-post/start",
-    "get-accounts": "babel-node src/scripts/get-accounts"
+    "get-accounts": "babel-node src/scripts/get-accounts",
+    "medium-engage": "node src/scripts/medium-engage-bot/start"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,8 @@
     "moment": "^2.24.0",
     "pm2": "^3.5.1",
     "selenium-webdriver": "^4.0.0-alpha.3",
-    "twit": "^2.2.11"
+    "twit": "^2.2.11",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

@@ -6,5 +6,6 @@ import {users} from './users'
 import {people} from './people'
 import {bots} from './bots'
 import {activities} from './activities'
+import {mediumEngageBot} from './medium-engage-bot'
 
-export const db = {apps, accounts, posts, twitterAutoFollow, users, people, bots, activities}
+export const db = {apps, accounts, posts, twitterAutoFollow, users, people, bots, activities, mediumEngageBot}
