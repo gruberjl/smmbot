@@ -36,7 +36,7 @@
     "clone-deep": "^4.0.1",
     "firebase-admin": "^8.1.0",
     "moment": "^2.24.0",
-    "pm2": "^3.5.1",
+    "pm2": "^5.2.0",
     "selenium-webdriver": "^4.0.0-alpha.3",
     "twit": "^2.2.11",
     "shortid": "^2.2.14"
